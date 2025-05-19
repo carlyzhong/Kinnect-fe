@@ -7,8 +7,8 @@ export default function ArticleCard({ article }) {
         className="rounded-sm w-full h-auto"
       />
       <p>{article.title}</p>
-      <p>{article.author}</p>
-      <p>👍{article.comment_count}</p>
+      <p className="text-sm text-gray-500">{article.author}</p>
+      <p className="text-sm text-gray-800">👍 {article.comment_count}</p>
     </div>
   );
 }

@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import ArticlesPage from "./Components/ArticlesPage";
+import ArticlesPage from "./Components/Articles/ArticlesPage";
 
 function App() {
   return (
     <>
       <header>
-        <h1 className="text-3xl text-center">News</h1>
+        <h1 className="text-2xl text-center font-extrabold">NC NEWS</h1>
         <hr />
       </header>
       <Routes>
