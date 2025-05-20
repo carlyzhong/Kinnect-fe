@@ -1,19 +1,7 @@
-import { useEffect, useState } from "react";
-import { getArticleById } from "../../utils/api";
 import { useNavigate } from "react-router-dom";
 
-export default function ArticlePreview({ article_id }) {
-  const [isLoading, setIsLoading] = useState(false);
-  const [article, setArticle] = useState(null);
+export default function ArticlePreview({ article, isLoading, error }) {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    setIsLoading(true);
-    getArticleById(article_id).then((articleFromApi) => {
-      setArticle(articleFromApi);
-      setIsLoading(false);
-    });
-  }, [article_id]);
 
   function handleBack() {
     navigate("/");
@@ -21,6 +9,10 @@ export default function ArticlePreview({ article_id }) {
 
   if (isLoading || !article) {
     return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>{error.message}</p>;
   }
 
   return (
@@ -32,9 +24,13 @@ export default function ArticlePreview({ article_id }) {
         >
           ⏮️
         </button>
-        <p>👤 {article.author}</p>
-        <p className="text-sm"> {article.created_at}</p>
-        <p>👍 {article.votes}</p>
+        <div className="flex justify-between">
+          <div className="flex gap-1">
+            <p>👤 {article.author}</p>
+            <p>on {article.created_at}</p>
+          </div>
+          <p className="px-2">👍 {article.votes}</p>
+        </div>
       </div>
       <img src={article.article_img_url} alt={`${article.article_id}.jpg`} />
       <div>
