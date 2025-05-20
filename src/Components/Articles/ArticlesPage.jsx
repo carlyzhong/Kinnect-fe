@@ -1,12 +1,12 @@
 import TopicNavBar from "../Topics/TopicNavBar";
 import ArticleList from "./ArticlesList";
 
-export default function ArticlesPages() {
+export default function ArticlesPage({ setSelectedArticleId }) {
   return (
     <>
       <TopicNavBar />
       <hr />
-      <ArticleList />
+      <ArticleList setSelectedArticleId={setSelectedArticleId} />
     </>
   );
 }

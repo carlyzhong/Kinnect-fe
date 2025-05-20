@@ -1,13 +1,13 @@
-export default function ArticleCard({ article }) {
+export default function ArticleCard({ article, onClick }) {
   return (
-    <div className="bg-white rounded-sm">
+    <div className="bg-white rounded-sm" onClick={onClick}>
       <img
         src={article.article_img_url}
         alt={`${article.article_id}.jpg`}
         className="rounded-sm w-full h-auto"
       />
       <p>{article.title}</p>
-      <p className="text-sm text-gray-500">{article.author}</p>
+      <p className="text-sm text-gray-500">👤 {article.author}</p>
       <p className="text-sm text-gray-800">👍 {article.comment_count}</p>
     </div>
   );
