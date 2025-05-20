@@ -26,7 +26,7 @@ export default function ArticlesList({ setSelectedArticleId }) {
   }
 
   return (
-    <div className="p-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 bg-gray-100 content-center">
+    <div className="p-2 grid grid-cols-2 md:grid-cols-4 gap-2 bg-stone-200 shadow-lg shadow-cyan-500/50 content-center">
       {articlesList.map((article) => (
         <ArticleCard
           article={article}

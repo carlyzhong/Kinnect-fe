@@ -27,3 +27,13 @@ export const getCommentsByArticleId = (article_id) => {
     return data.comments;
   });
 };
+
+export const upVoteArticle = (article_id) => {
+  const req = { inc_votes: 1 };
+  return newsApi.patch(`/articles/${article_id}`, req);
+};
+
+export const downVoteArticle = (article_id) => {
+  const req = { inc_votes: -1 };
+  return newsApi.patch(`/articles/${article_id}`, req);
+};
