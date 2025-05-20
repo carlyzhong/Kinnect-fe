@@ -11,7 +11,7 @@ export default function ArticleViewPage() {
 
   return (
     <>
-      <div className="max-w-7xl mx-auto lg:grid lg:grid-cols-2 ">
+      <div className="max-w-3xl mx-auto md:grid md:grid-cols-2 gap-8">
         <div>
           <ArticlePreview
             article_id={article_id}
@@ -20,9 +20,9 @@ export default function ArticleViewPage() {
             error={error}
           />
         </div>
-        <hr className="h-0.5 w-80 mx-auto md:w-150 lg:w-250 my-4 bg-gray-300 border-0 lg:hidden" />
+        <hr className="h-0.5 w-80 mx-auto md:w-150 lg:w-250 my-4 bg-gray-300 border-0 md:hidden" />
         <div>
-          <CommentHeading article={data}></CommentHeading>
+          <CommentHeading article={data} />
           <CommentPreview article_id={article_id} />
         </div>
       </div>

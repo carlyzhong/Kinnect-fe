@@ -1,4 +1,9 @@
 import { useNavigate } from "react-router-dom";
+import parseDate from "../../utils/parseDate";
+import ThumbUpAltOutlinedIcon from "@mui/icons-material/ThumbUpAltOutlined";
+import ThumbDownAltOutlinedIcon from "@mui/icons-material/ThumbDownAltOutlined";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 export default function ArticlePreview({ article, isLoading, error }) {
   const navigate = useNavigate();
@@ -17,28 +22,39 @@ export default function ArticlePreview({ article, isLoading, error }) {
 
   return (
     <>
-      <div>
-        <button
-          className="p-2 border-1 rounded-lg"
-          onClick={() => handleBack()}
-        >
-          ⏮️
-        </button>
-        <div className="flex justify-between">
-          <div className="flex gap-1">
-            <p>👤 {article.author}</p>
-            <p>on {article.created_at}</p>
+      <div className="flex justify-between items-center w-full">
+        <div className="flex items-center gap-2">
+          <div className="px-2">
+            <ArrowBackIosIcon onClick={() => handleBack()} />
           </div>
-          <p className="px-2">👍 {article.votes}</p>
+          <AccountBoxIcon fontSize="large" />
+          <div className="text-sm">
+            <p>{article.author}</p>
+            <p>{parseDate(article.created_at)}</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="px-3">
+            <p> {article.votes}</p>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="px-2">
+              <ThumbUpAltOutlinedIcon />
+            </div>
+            <div className="px-2">
+              <ThumbDownAltOutlinedIcon />
+            </div>
+          </div>
         </div>
       </div>
+
       <img src={article.article_img_url} alt={`${article.article_id}.jpg`} />
       <div>
-        <p className="text-2xl">{article.title}</p>
-        <p className="text-sm">🏷️ {article.topic}</p>
+        <p className="text-xl px-1">{article.title}</p>
+        <p className="text-sm px-1">🏷️ {article.topic}</p>
       </div>
       <div>
-        <p>{article.body}</p>
+        <p className="px-1">{article.body}</p>
       </div>
     </>
   );
