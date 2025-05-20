@@ -1,9 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import parseDate from "../../utils/parseDate";
-import ThumbUpAltOutlinedIcon from "@mui/icons-material/ThumbUpAltOutlined";
-import ThumbDownAltOutlinedIcon from "@mui/icons-material/ThumbDownAltOutlined";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import VoteArticle from "../Voting/VoteArticle";
 
 export default function ArticlePreview({ article, isLoading, error }) {
   const navigate = useNavigate();
@@ -25,7 +24,7 @@ export default function ArticlePreview({ article, isLoading, error }) {
       <div className="flex justify-between items-center w-full">
         <div className="flex items-center gap-2">
           <div className="px-2">
-            <ArrowBackIosIcon onClick={() => handleBack()} />
+            <ArrowBackIosIcon onClick={handleBack} />
           </div>
           <AccountBoxIcon fontSize="large" />
           <div className="text-sm">
@@ -33,19 +32,7 @@ export default function ArticlePreview({ article, isLoading, error }) {
             <p>{parseDate(article.created_at)}</p>
           </div>
         </div>
-        <div className="flex items-center gap-2">
-          <div className="px-3">
-            <p> {article.votes}</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="px-2">
-              <ThumbUpAltOutlinedIcon />
-            </div>
-            <div className="px-2">
-              <ThumbDownAltOutlinedIcon />
-            </div>
-          </div>
-        </div>
+        <VoteArticle votes={article.votes} id={article.article_id} />
       </div>
 
       <img src={article.article_img_url} alt={`${article.article_id}.jpg`} />
