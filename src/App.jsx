@@ -1,7 +1,11 @@
 import { Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
 import ArticlesPage from "./Components/Articles/ArticlesPage";
+import ArticleViewPage from "./Components/Article/ArticleViewPage";
 
 function App() {
+  const [selectedArticleId, setSelectedArticleId] = useState(null);
+
   return (
     <>
       <header>
@@ -9,7 +13,11 @@ function App() {
         <hr />
       </header>
       <Routes>
-        <Route path="/" element={<ArticlesPage />} />
+        <Route
+          path="/"
+          element={<ArticlesPage setSelectedArticleId={setSelectedArticleId} />}
+        />
+        <Route path="/:article_id" element={<ArticleViewPage />} />
       </Routes>
     </>
   );
