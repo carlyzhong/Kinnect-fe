@@ -4,19 +4,11 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import VoteArticle from "../Voting/VoteArticle";
 
-export default function ArticlePreview({ article, isLoading, error }) {
+export default function ArticlePreview({ article }) {
   const navigate = useNavigate();
 
   function handleBack() {
     navigate("/");
-  }
-
-  if (isLoading || !article) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>{error.message}</p>;
   }
 
   return (
