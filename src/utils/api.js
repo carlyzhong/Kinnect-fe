@@ -37,3 +37,12 @@ export const downVoteArticle = (article_id) => {
   const req = { inc_votes: -1 };
   return newsApi.patch(`/articles/${article_id}`, req);
 };
+
+export const postComment = (article_id, newComment, username) => {
+  const req = {
+    username: username,
+    body: newComment,
+  };
+
+  return newsApi.post(`/articles/${article_id}/comments`, req);
+};

@@ -10,7 +10,7 @@ import { downVoteArticle, upVoteArticle } from "../../utils/api";
 export default function VoteArticle({ votes, id }) {
   const [hasVotedUp, setHasVotedUp] = useState(false);
   const [hasVotedDown, setHasVotedDown] = useState(false);
-  const [updatedVotes, setUpdatedVotes] = useState(votes);
+  const [updatedVotes, setUpdatedVotes] = useState(0);
   const [error, setError] = useState(null);
 
   function handleUpVote() {

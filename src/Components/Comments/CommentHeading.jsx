@@ -1,9 +1,7 @@
-export default function CommentHeading({ article }) {
+export default function CommentHeading({ comment_count }) {
   return (
     <>
-      {article ? (
-        <p className="px-3">Comments {article.comment_count}</p>
-      ) : null}
+      <p className="px-3">Comments {comment_count}</p>
     </>
   );
 }

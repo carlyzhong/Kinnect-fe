@@ -3,7 +3,7 @@ import { getArticles } from "../../utils/api";
 import ArticleCard from "../Cards/ArticleCard";
 import { useNavigate } from "react-router-dom";
 
-export default function ArticlesList({ setSelectedArticleId }) {
+export default function ArticlesList() {
   const [articlesList, setArticlesList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -17,7 +17,6 @@ export default function ArticlesList({ setSelectedArticleId }) {
   }, []);
 
   function handleArticleClick(id) {
-    setSelectedArticleId(id);
     navigate(`/${id}`);
   }
 

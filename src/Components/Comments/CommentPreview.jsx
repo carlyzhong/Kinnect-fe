@@ -1,18 +1,30 @@
 import { getCommentsByArticleId } from "../../utils/api";
 import useFetching from "../Hooks/useFetching";
 import CommentsList from "./CommentsList";
+import PostNewComment from "./PostNewComment";
 
 export default function CommentPreview({ article_id }) {
-  const { data, isLoading, error } = useFetching(
+  const { data, setData, isLoading, error } = useFetching(
     getCommentsByArticleId,
     article_id
   );
 
+  function addComment(newComment) {
+    setData((prev) => [newComment, ...prev]);
+  }
+
+  if (isLoading || !data) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>{error.message}</p>;
+  }
+
   return (
     <>
-      {isLoading ? <p>Loading...</p> : null}
-      {error ? <p>ERROR: {error.message}</p> : null}
-      {data ? <CommentsList comments={data} /> : null}
+      <PostNewComment article_id={article_id} onCommentPosted={addComment} />
+      <CommentsList comments={data} />
     </>
   );
 }

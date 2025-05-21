@@ -18,5 +18,5 @@ export default function useFetching(apiFunc, articleId) {
       });
   }, [apiFunc, articleId]);
 
-  return { data, isLoading, error };
+  return { data, setData, isLoading, error };
 }
