@@ -34,4 +34,6 @@ The application is being built with **React** and consumes data from the [Posted
 🔧 Front-end development is currently in progress.  
 ✅ Back-end is fully deployed and functional — see [Posted API](https://github.com/carlyzhong/Posted-API).
 
+live hosting: https://soft-semolina-c4efc8.netlify.app
+
 ---

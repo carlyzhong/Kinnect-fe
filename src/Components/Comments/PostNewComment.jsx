@@ -3,7 +3,7 @@ import { useState } from "react";
 import { postComment } from "../../utils/api";
 
 export default function PostNewComment({ article_id, onCommentPosted }) {
-  const tempUsername = "testingUser1"; //change this after adding login feature
+  const tempUsername = "jameshoidating"; //change this after adding login feature
 
   const [newComment, setNewComment] = useState("");
   const [error, setError] = useState(null);
