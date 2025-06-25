@@ -1,6 +1,6 @@
 # "kinnect" Frontend (In Progress)
 
- [live demo](kinnect-with.netlify.app)
+ [Live demo](https://kinnect-with.netlify.app)
 
 This is the front-end for **Posted**, a Reddit-style news discussion platform. Users can browse articles, vote, comment, and explore different topics.
 
